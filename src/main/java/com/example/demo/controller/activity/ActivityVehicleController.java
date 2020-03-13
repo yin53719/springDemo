@@ -1,4 +1,4 @@
-package com.example.demo.controller;
+package com.example.demo.controller.activity;
 
 import com.example.demo.dto.ActivityDTO;
 import com.example.demo.service.ActivityService;

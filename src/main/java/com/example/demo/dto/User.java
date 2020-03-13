@@ -1,8 +1,6 @@
-package com.example.demo.po;
+package com.example.demo.dto;
 
-
-public class UserInfoPo {
-
+public class User {
     private String userName;
 
     private int phone ;

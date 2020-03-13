@@ -1,15 +1,23 @@
 package com.example.demo.controller.UserInfo;
 
-import com.example.demo.dto.UserInfoDto;
-import com.example.demo.po.UserInfoPo;
-import org.springframework.web.bind.annotation.RequestMapping;
+import com.example.demo.dto.User;
+import com.example.demo.service.UserService;
+import org.springframework.web.bind.annotation.*;
 
-@RequestMapping
+import java.util.Map;
+
+
+@RestController
+@RequestMapping("/api")
 public class UserInfoController {
+    private  UserService userService ;
 
-    public UserInfoDto userInfoDto(){
-        UserInfoDto userInfoDto = new UserInfoDto();
-        UserInfoPo userInfoPo = new UserInfoPo();
-       return userInfoDto;
+    @GetMapping("/login")
+    public User login (@RequestParam(name = "userName", required = false) String userName){
+        User user = new User();
+        System.out.println(userName);
+
+        user  = userService.selectUserByName(userName);
+       return user;
     }
 }
