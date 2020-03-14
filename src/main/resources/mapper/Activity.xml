@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace用于绑定Dao接口 -->
+<mapper namespace="com.example.demo.dao.ActivityDao">
+    <!-- 用用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.example.demo.dto.ActivityDTO" >
+        <!-- column代表数据库列名，property代表实体类属性名 -->
+        <result column="activityName" property="activityName"/>
+        <result column="activityInfo" property="activityInfo"/>
+        <result column="11" property="activityType"/>
+        <result column="22" property="createByName"/>
+        <result column="33" property="userId"/>
+        <result column="44" property="phone"/>
+        <result column="55" property="activityId"/>
+        <result column="66" property="userId"/>
+    </resultMap>
+    <resultMap id="resultMap" type="com.example.demo.dto.ActivityDTO" >
+        <!-- column代表数据库列名，property代表实体类属性名 -->
+        <result column="activityName" property="activityName"/>
+        <result column="activityInfo" property="activityInfo"/>
+        <result column="activityType" property="activityType"/>
+        <result column="createByName" property="createByName"/>
+        <result column="userId" property="userId"/>
+        <result column="phone" property="phone"/>
+        <result column="activityId" property="activityId"/>
+        <result column="userId" property="userId"/>
+    </resultMap>
+    <!-- 查询名字记录sql -->
+    <select id="selectActivityList" parameterType="int" resultType="com.example.demo.dto.ActivityDTO">
+        SELECT id,activityName,activityInfo,activityType,createByName FROM tc_activity
+
+        <if test="id !=null ">
+            WHERE id = #{id}
+        </if>
+
+    </select>
+    <select id="selectAllInfoList" parameterType="int" resultMap="BaseResultMap">
+        SELECT
+        a.id activityId,
+        a.activityName,
+        a.activityType,
+        a.activityInfo,
+        a.createByName,
+        a.userId,
+        b.phone
+        FROM
+        tc_activity a
+        LEFT JOIN tc_user b ON a.userId = b.id
+
+    </select>
+
+</mapper>

@@ -1,18 +1,11 @@
 package com.example.demo.service;
 
-import com.example.demo.po.ActivityPO;
+import com.example.demo.dto.ActivityDTO;
 
-public class ActivityService {
+import java.util.List;
 
-   public ActivityPO getActivityInfo (){
-       ActivityPO activityPO = new ActivityPO();
+public interface ActivityService {
 
-
-       activityPO.setUserName("hardy1111");
-       activityPO.setPassWord("pass1234");
-       activityPO.setPhone(123456);
-       activityPO.setStatus(1);
-
-       return activityPO;
-   }
+    List<ActivityDTO> selectActivityList(Integer id);
+    List<ActivityDTO> selectAllInfoList(Integer id);
 }

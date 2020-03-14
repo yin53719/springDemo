@@ -9,4 +9,10 @@ public interface UserService {
      * @return
      */
     User selectUserByName(String userName);
+
+    void updateByName(User user);
+
+    void insertByName(User user);
+
+    void deleteByName(int id);
 }

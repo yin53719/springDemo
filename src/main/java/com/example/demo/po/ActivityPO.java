@@ -1,45 +1,63 @@
 package com.example.demo.po;
 
 public class ActivityPO {
-    public  String  userName;
+    private int id;
 
-    public Integer phone;
+    private String activityName;
 
-    public  String passWord;
+    private String activityInfo;
 
-    public  int status;
+    private  int activityType;
 
-    public int getStatus() {
-        return status;
+    private String createByName;
+
+    private int phone;
+
+    public int getId() {
+        return id;
     }
 
-    public void setStatus(int status) {
-        this.status = status;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public String getUserName() {
-        return userName;
+    public String getActivityName() {
+        return activityName;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setActivityName(String activityName) {
+        this.activityName = activityName;
     }
 
-    public Integer getPhone() {
+    public String getActivityInfo() {
+        return activityInfo;
+    }
+
+    public void setActivityInfo(String activityInfo) {
+        this.activityInfo = activityInfo;
+    }
+
+    public int getActivityType() {
+        return activityType;
+    }
+
+    public void setActivityType(int activityType) {
+        this.activityType = activityType;
+    }
+
+    public String getCreateByName() {
+        return createByName;
+    }
+
+    public void setCreateByName(String createByName) {
+        this.createByName = createByName;
+    }
+
+    public int getPhone() {
         return phone;
     }
 
-    public void setPhone(Integer phone) {
+    public void setPhone(int phone) {
         this.phone = phone;
     }
-
-    public String getPassWord() {
-        return passWord;
-    }
-
-    public void setPassWord(String passWord) {
-        this.passWord = passWord;
-    }
-
-
 }

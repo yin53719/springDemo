@@ -3,14 +3,25 @@
 <!-- namespace用于绑定Dao接口 -->
 <mapper namespace="com.example.demo.dao.UserDao">
     <!-- 用用查询映射结果 -->
-    <resultMap id="BaseResultMap" type="com.example.demo.po.UserInfoPo" >
+    <resultMap id="BaseResultMap" type="com.example.demo.dto.User" >
         <!-- column代表数据库列名，property代表实体类属性名 -->
         <result column="userName" property="userName"/>
-        <result column="passWord" property="passWord"/>
+        <result column="password" property="password"/>
         <result column="phone" property="phone"/>
+        <result column="id" property="id"/>
     </resultMap>
     <!-- 查询名字记录sql -->
-    <select id="selectUserByUserName" parameterType="String" resultMap="BaseResultMap">
-        SELECT * FROM tc_user WHERE userName = #{userName}
+    <select id="selectUserByUserName" parameterType="String" resultType="com.example.demo.dto.User">
+        SELECT userName,password,phone,id  FROM tc_user WHERE userName = #{userName}
     </select>
+    <insert id="insertByName" parameterType="com.example.demo.dto.User" >
+        INSERT  into tc_user (userName,password,phone) VALUES (#{userName},#{password},#{phone})
+    </insert>
+    <update id="updateByName" parameterType="com.example.demo.dto.User" >
+        update tc_user set phone = #{phone} where userName = #{userName}
+    </update>
+
+    <delete id="deleteByName" parameterType="int" >
+        delete FROM tc_user where id = #{ id }
+    </delete>
 </mapper>
