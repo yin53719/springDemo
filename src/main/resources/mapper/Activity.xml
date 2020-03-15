@@ -24,6 +24,10 @@
         </if>
 
     </select>
+    <insert id="insertActivity" parameterType="com.example.demo.po.ActivityPO" >
+        INSERT  into tc_activity (activityName,activityInfo,activityType,userId,createByName)
+        VALUES (#{activityName},#{activityInfo},#{activityType},#{userId},#{createByName})
+    </insert>
     <select id="selectAllInfoList" parameterType="int" resultMap="activityMap">
         SELECT
         a.id activityId,

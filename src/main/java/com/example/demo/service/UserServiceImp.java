@@ -25,10 +25,13 @@ public class UserServiceImp implements UserService {
         userDao.updateByName(user);
     }
 
+
+    @Transient
     @Override
     public void insertByName(User user){
         userDao.insertByName(user);
     }
+
     @Override
     public void deleteByName(int id){
         userDao.deleteByName(id);

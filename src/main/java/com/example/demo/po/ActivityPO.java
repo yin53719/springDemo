@@ -11,7 +11,7 @@ public class ActivityPO {
 
     private String createByName;
 
-    private int phone;
+    private int userId;
 
     public int getId() {
         return id;
@@ -53,11 +53,11 @@ public class ActivityPO {
         this.createByName = createByName;
     }
 
-    public int getPhone() {
-        return phone;
+    public int getUserId() {
+        return userId;
     }
 
-    public void setPhone(int phone) {
-        this.phone = phone;
+    public void setUserId(int userId) {
+        this.userId = userId;
     }
 }
