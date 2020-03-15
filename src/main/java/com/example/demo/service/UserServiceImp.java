@@ -5,6 +5,8 @@ import com.example.demo.dto.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class UserServiceImp implements UserService {
 
@@ -12,7 +14,7 @@ public class UserServiceImp implements UserService {
     private UserDao userDao;//注入UserDao
 
     @Override
-    public User selectUserByName(String userName) {
+    public List<User> selectUserByName(String userName) {
         return userDao.selectUserByUserName(userName);
     }
 

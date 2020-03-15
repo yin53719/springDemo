@@ -12,7 +12,11 @@
     </resultMap>
     <!-- 查询名字记录sql -->
     <select id="selectUserByUserName" parameterType="String" resultType="com.example.demo.dto.User">
-        SELECT userName,password,phone,id  FROM tc_user WHERE userName = #{userName}
+        SELECT userName,password,phone,id  FROM tc_user
+        <if test="userName !=null ">
+            WHERE userName = #{userName}
+        </if>
+
     </select>
     <insert id="insertByName" parameterType="com.example.demo.dto.User" >
         INSERT  into tc_user (userName,password,phone) VALUES (#{userName},#{password},#{phone})

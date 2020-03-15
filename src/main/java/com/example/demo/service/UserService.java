@@ -2,13 +2,15 @@ package com.example.demo.service;
 
 import com.example.demo.dto.User;
 
+import java.util.List;
+
 public interface UserService {
     /**
      * 通过姓名查找User
      * @param userName
      * @return
      */
-    User selectUserByName(String userName);
+    List<User> selectUserByName(String userName);
 
     void updateByName(User user);
 

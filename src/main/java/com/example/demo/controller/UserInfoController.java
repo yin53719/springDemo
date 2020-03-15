@@ -6,21 +6,36 @@ import com.example.demo.utils.ResponseUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/user")
 public class UserInfoController {
     @Autowired
     private  UserService userService ;
-    private Object Map;
+
     /**
     * 根据用户名查询用户
     * @return
     */
     @GetMapping("/getUserInfo")
-    public User getUserInfo (@RequestParam(name = "userName", required = false) String userName){
-        User user = new User();
-        user  = userService.selectUserByName(userName);
-       return user;
+    public ResponseUtil getUserInfo (@RequestParam(name = "userName", required = false) String userName){
+        ResponseUtil response =  new ResponseUtil();
+        try {
+            List<User> userInfo = userService.selectUserByName(userName);
+            response.setStatus(200);
+            response.setData(userInfo);
+            int x = 10;
+            while( x < 20 ) {
+                System.out.print("value of x : " + x );
+                x++;
+                System.out.print("\n");
+            }
+        }catch (Exception e){
+            response.setStatus(500);
+            response.setMsg(e.getMessage());
+        }
+        return response;
     }
     /**
      * 根据用户名修改用户信息
