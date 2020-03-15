@@ -1,7 +1,6 @@
 package com.example.demo.controller;
 
 import com.example.demo.dto.ActivityDTO;
-import com.example.demo.dto.User;
 import com.example.demo.po.ActivityPO;
 import com.example.demo.service.ActivityService;
 import com.example.demo.utils.ResponseUtil;

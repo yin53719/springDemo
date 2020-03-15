@@ -3,8 +3,6 @@ package com.example.demo.dao;
 
 import com.example.demo.dto.User;
 import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.Update;
 
 @Mapper
 public interface UserDao {

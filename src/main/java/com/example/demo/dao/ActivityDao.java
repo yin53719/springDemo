@@ -2,7 +2,7 @@ package com.example.demo.dao;
 
 
 import com.example.demo.dto.ActivityDTO;
-import com.example.demo.dto.User;
+
 import com.example.demo.po.ActivityPO;
 import org.apache.ibatis.annotations.Mapper;
 

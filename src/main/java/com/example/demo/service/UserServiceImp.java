@@ -5,8 +5,6 @@ import com.example.demo.dto.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.beans.Transient;
-
 @Service
 public class UserServiceImp implements UserService {
 
@@ -19,14 +17,13 @@ public class UserServiceImp implements UserService {
     }
 
     @Override
-    //事务
-    @Transient
+
     public void updateByName(User user){
         userDao.updateByName(user);
     }
 
 
-    @Transient
+
     @Override
     public void insertByName(User user){
         userDao.insertByName(user);
