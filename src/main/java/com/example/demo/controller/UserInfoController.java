@@ -4,6 +4,10 @@ import com.example.demo.dto.User;
 import com.example.demo.service.UserService;
 import com.example.demo.utils.ResponseUtil;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
+import org.springframework.jdbc.core.JdbcOperations;
+import org.springframework.jdbc.core.RowCallbackHandler;
+import org.springframework.jdbc.core.RowMapper;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -13,7 +17,8 @@ import java.util.List;
 public class UserInfoController {
     @Autowired
     private  UserService userService ;
-
+    @Autowired
+    private JdbcOperations jdbcOperations;
     /**
     * 根据用户名查询用户
     * @return
@@ -22,7 +27,9 @@ public class UserInfoController {
     public ResponseUtil getUserInfo (@RequestParam(name = "userName", required = false) String userName){
         ResponseUtil response =  new ResponseUtil();
         try {
-            List<User> userInfo = userService.selectUserByName(userName);
+            RowMapper<User> rowMapper = new BeanPropertyRowMapper<>(User.class);
+            List<User> userInfo =  jdbcOperations.query("SELECT userName,password,phone,id  FROM tc_user", rowMapper);
+//            List<User> userInfo = userService.selectUserByName(userName);
             response.setStatus(200);
             response.setData(userInfo);
             int x = 10;
@@ -31,6 +38,9 @@ public class UserInfoController {
                 x++;
                 System.out.print("\n");
             }
+
+
+            System.out.println("\n");
         }catch (Exception e){
             response.setStatus(500);
             response.setMsg(e.getMessage());
