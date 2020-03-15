@@ -3,18 +3,8 @@
 <!-- namespace用于绑定Dao接口 -->
 <mapper namespace="com.example.demo.dao.ActivityDao">
     <!-- 用用查询映射结果 -->
-    <resultMap id="BaseResultMap" type="com.example.demo.dto.ActivityDTO" >
-        <!-- column代表数据库列名，property代表实体类属性名 -->
-        <result column="activityName" property="activityName"/>
-        <result column="activityInfo" property="activityInfo"/>
-        <result column="11" property="activityType"/>
-        <result column="22" property="createByName"/>
-        <result column="33" property="userId"/>
-        <result column="44" property="phone"/>
-        <result column="55" property="activityId"/>
-        <result column="66" property="userId"/>
-    </resultMap>
-    <resultMap id="resultMap" type="com.example.demo.dto.ActivityDTO" >
+
+    <resultMap id="activityMap" type="com.example.demo.dto.ActivityDTO" >
         <!-- column代表数据库列名，property代表实体类属性名 -->
         <result column="activityName" property="activityName"/>
         <result column="activityInfo" property="activityInfo"/>
@@ -34,7 +24,7 @@
         </if>
 
     </select>
-    <select id="selectAllInfoList" parameterType="int" resultMap="BaseResultMap">
+    <select id="selectAllInfoList" parameterType="int" resultMap="activityMap">
         SELECT
         a.id activityId,
         a.activityName,

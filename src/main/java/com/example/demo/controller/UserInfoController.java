@@ -1,14 +1,10 @@
-package com.example.demo.controller.UserInfo;
+package com.example.demo.controller;
 
 import com.example.demo.dto.User;
 import com.example.demo.service.UserService;
 import com.example.demo.utils.ResponseUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.HashMap;
-import java.util.Map;
-
 
 @RestController
 @RequestMapping("/user")
